@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace RegistroProyectoFinal
+namespace RegistroProyectoFinal.UI.Registro
 {
-    public partial class Form1 : Form
+    public partial class RegistrarEntradaProducto : Form
     {
-        public Form1()
+        public RegistrarEntradaProducto()
         {
             InitializeComponent();
         }
