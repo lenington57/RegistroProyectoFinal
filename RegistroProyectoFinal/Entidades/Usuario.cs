@@ -10,7 +10,7 @@ namespace RegistroProyectoFinal.Entidades
     {
         [Key]
 
-        public int ClienteId { get; set; }
+        public int UsuarioId { get; set; }
 
         public string Nombres { get; set; }
 
@@ -23,7 +23,7 @@ namespace RegistroProyectoFinal.Entidades
 
         public Usuario()
         {
-            ClienteId = 0;
+            UsuarioId = 0;
             Nombres = string.Empty;
             NoTelefono = string.Empty;
             Email = string.Empty;

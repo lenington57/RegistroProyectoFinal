@@ -22,6 +22,8 @@ namespace RegistroProyectoFinal.Entidades
 
         public double Precio { get; set; }
 
+        public double PorCientoGanancia { get; set; }
+
         public double CantidadIventario { get; set; }
 
 
@@ -33,6 +35,7 @@ namespace RegistroProyectoFinal.Entidades
             Descripcion = string.Empty;
             Costo = 0;
             Precio = 0;
+            PorCientoGanancia = 0;
             CantidadIventario = 0;
         }
 

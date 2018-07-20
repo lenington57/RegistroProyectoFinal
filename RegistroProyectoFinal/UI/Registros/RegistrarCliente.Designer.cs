@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.components = new System.ComponentModel.Container();
+            this.DireccionTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.NombresTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.ArtículoIdNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.ClienteIdNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.EliminarButton = new System.Windows.Forms.Button();
@@ -40,17 +41,20 @@
             this.NuevoButton = new System.Windows.Forms.Button();
             this.BuscarButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.ArtículoIdNumericUpDown)).BeginInit();
+            this.NoTelefonoMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.MyErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.ClienteIdNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox2
+            // DireccionTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(71, 125);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(171, 20);
-            this.textBox2.TabIndex = 62;
+            this.DireccionTextBox.Location = new System.Drawing.Point(71, 125);
+            this.DireccionTextBox.Name = "DireccionTextBox";
+            this.DireccionTextBox.Size = new System.Drawing.Size(171, 20);
+            this.DireccionTextBox.TabIndex = 62;
+            this.DireccionTextBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label3
             // 
@@ -61,12 +65,12 @@
             this.label3.TabIndex = 61;
             this.label3.Text = "Dirección";
             // 
-            // textBox1
+            // NombresTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(110, 58);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 20);
-            this.textBox1.TabIndex = 60;
+            this.NombresTextBox.Location = new System.Drawing.Point(110, 58);
+            this.NombresTextBox.Name = "NombresTextBox";
+            this.NombresTextBox.Size = new System.Drawing.Size(132, 20);
+            this.NombresTextBox.TabIndex = 60;
             // 
             // label2
             // 
@@ -77,12 +81,12 @@
             this.label2.TabIndex = 59;
             this.label2.Text = "Nombre Completo";
             // 
-            // ArtículoIdNumericUpDown
+            // ClienteIdNumericUpDown
             // 
-            this.ArtículoIdNumericUpDown.Location = new System.Drawing.Point(80, 21);
-            this.ArtículoIdNumericUpDown.Name = "ArtículoIdNumericUpDown";
-            this.ArtículoIdNumericUpDown.Size = new System.Drawing.Size(54, 20);
-            this.ArtículoIdNumericUpDown.TabIndex = 58;
+            this.ClienteIdNumericUpDown.Location = new System.Drawing.Point(80, 21);
+            this.ClienteIdNumericUpDown.Name = "ClienteIdNumericUpDown";
+            this.ClienteIdNumericUpDown.Size = new System.Drawing.Size(54, 20);
+            this.ClienteIdNumericUpDown.TabIndex = 58;
             // 
             // label1
             // 
@@ -113,6 +117,7 @@
             this.EliminarButton.TabIndex = 57;
             this.EliminarButton.Text = "Eliminar";
             this.EliminarButton.UseVisualStyleBackColor = true;
+            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
             // 
             // GuardarButton
             // 
@@ -124,6 +129,7 @@
             this.GuardarButton.TabIndex = 56;
             this.GuardarButton.Text = "Guardar";
             this.GuardarButton.UseVisualStyleBackColor = true;
+            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
             // 
             // NuevoButton
             // 
@@ -135,6 +141,7 @@
             this.NuevoButton.TabIndex = 55;
             this.NuevoButton.Text = "Nuevo";
             this.NuevoButton.UseVisualStyleBackColor = true;
+            this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
             // BuscarButton
             // 
@@ -146,6 +153,7 @@
             this.BuscarButton.TabIndex = 54;
             this.BuscarButton.Text = "Buscar";
             this.BuscarButton.UseVisualStyleBackColor = true;
+            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
             // 
             // label4
             // 
@@ -156,27 +164,31 @@
             this.label4.TabIndex = 64;
             this.label4.Text = "No. Telefono";
             // 
-            // maskedTextBox1
+            // NoTelefonoMaskedTextBox
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(97, 90);
-            this.maskedTextBox1.Mask = "(999) 000-0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox1.TabIndex = 65;
+            this.NoTelefonoMaskedTextBox.Location = new System.Drawing.Point(97, 90);
+            this.NoTelefonoMaskedTextBox.Mask = "(999) 000-0000";
+            this.NoTelefonoMaskedTextBox.Name = "NoTelefonoMaskedTextBox";
+            this.NoTelefonoMaskedTextBox.Size = new System.Drawing.Size(100, 20);
+            this.NoTelefonoMaskedTextBox.TabIndex = 65;
+            // 
+            // MyErrorProvider
+            // 
+            this.MyErrorProvider.ContainerControl = this;
             // 
             // RegistrarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(401, 199);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.NoTelefonoMaskedTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.DireccionTextBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.NombresTextBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.ArtículoIdNumericUpDown);
+            this.Controls.Add(this.ClienteIdNumericUpDown);
             this.Controls.Add(this.EliminarButton);
             this.Controls.Add(this.GuardarButton);
             this.Controls.Add(this.NuevoButton);
@@ -185,8 +197,9 @@
             this.Name = "RegistrarCliente";
             this.Text = "RegistrarCliente";
             this.Load += new System.EventHandler(this.RegistrarCliente_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ArtículoIdNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClienteIdNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,17 +208,18 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox DireccionTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox NombresTextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown ArtículoIdNumericUpDown;
+        private System.Windows.Forms.NumericUpDown ClienteIdNumericUpDown;
         private System.Windows.Forms.Button EliminarButton;
         private System.Windows.Forms.Button GuardarButton;
         private System.Windows.Forms.Button NuevoButton;
         private System.Windows.Forms.Button BuscarButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox NoTelefonoMaskedTextBox;
+        private System.Windows.Forms.ErrorProvider MyErrorProvider;
     }
 }

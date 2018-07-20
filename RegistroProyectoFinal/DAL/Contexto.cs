@@ -11,6 +11,8 @@ namespace RegistroProyectoFinal.DAL
     {
         public DbSet<Cliente> Cliente { get; set; }
 
+        public DbSet<Entradas> Entrada { get; set; }
+
         public DbSet<Departamento> Departamento { get; set; }
 
         public DbSet<Factura> Factura { get; set; }

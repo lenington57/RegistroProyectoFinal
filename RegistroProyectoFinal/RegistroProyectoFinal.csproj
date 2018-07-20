@@ -52,12 +52,16 @@
   <ItemGroup>
     <Compile Include="BLL\ClienteBLL.cs" />
     <Compile Include="BLL\DepartamentoBLL.cs" />
+    <Compile Include="BLL\EntradasBLL.cs" />
     <Compile Include="BLL\FacturaBLL.cs" />
+    <Compile Include="BLL\IRepository.cs" />
     <Compile Include="BLL\ProductoBLL.cs" />
+    <Compile Include="BLL\Repositorio.cs" />
     <Compile Include="BLL\UsuarioBLL.cs" />
     <Compile Include="DAL\Contexto.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Departamento.cs" />
+    <Compile Include="Entidades\Entradas.cs" />
     <Compile Include="Entidades\Factura.cs" />
     <Compile Include="Entidades\FacturaDetalle.cs" />
     <Compile Include="Entidades\Producto.cs" />
