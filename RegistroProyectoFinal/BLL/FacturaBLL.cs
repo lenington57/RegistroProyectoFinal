@@ -100,6 +100,18 @@ namespace RegistroProyectoFinal.BLL
             try
             {
                 factura = contexto.Factura.Find(id);
+
+                if (factura != null)
+                {
+                    factura.Detalle.Count();
+
+                    foreach (var item in factura.Detalle)
+                    {
+
+                        string s = item.Producto.Descripcion;
+                        string ss = item.Cliente.Nombres;
+                    }
+                }
                 contexto.Dispose();
             }
             catch (Exception)

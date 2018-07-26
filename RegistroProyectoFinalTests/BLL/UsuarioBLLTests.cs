@@ -4,6 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using RegistroProyectoFinal.Entidades;
+using RegistroProyectoFinal.DAL;
+using System.Linq.Expressions;
 
 namespace RegistroProyectoFinal.BLL.Tests
 {
@@ -13,31 +16,57 @@ namespace RegistroProyectoFinal.BLL.Tests
         [TestMethod()]
         public void GuardarTest()
         {
-            Assert.Fail();
+            bool paso;
+            Usuario usuario = new Usuario();
+            usuario.UsuarioId = 3;
+            usuario.Nombres = "Julio Alberto";
+            usuario.NoTelefono = "1234567890";
+            usuario.Email = "Jalbert@gmail.com";
+            usuario.Contraseña = "1875";
+            paso = UsuarioBLL.Guardar(usuario);
+            Assert.AreEqual(paso, true);
         }
 
         [TestMethod()]
         public void ModificarTest()
         {
-            Assert.Fail();
+            bool paso;
+            Usuario usuario = new Usuario();
+            usuario.UsuarioId = 3;
+            usuario.Nombres = "Julio Alberto";
+            usuario.NoTelefono = "0123456789";
+            usuario.Email = "Jalbert@gmail.com";
+            usuario.Contraseña = "3026";
+            paso = UsuarioBLL.Modificar(usuario);
+            Assert.AreEqual(paso, true);
         }
 
         [TestMethod()]
         public void EliminarTest()
         {
-            Assert.Fail();
+            int id = 3;
+            bool paso;
+            paso = UsuarioBLL.Eliminar(id);
+            Assert.AreEqual(paso, true);
         }
 
         [TestMethod()]
         public void BuscarTest()
         {
-            Assert.Fail();
+            int id = 2;
+            Usuario usuario = new Usuario();
+            usuario = UsuarioBLL.Buscar(id);
+            Assert.IsNotNull(usuario);
         }
 
         [TestMethod()]
-        public void GetListTest()
+        public void GetListTest(Expression<Func<Usuario, bool>> expression)
         {
-            Assert.Fail();
+            Contexto contexto = new Contexto();
+
+            List<Usuario> ListUsuarios = new List<Usuario>();
+            ListUsuarios = contexto.Usuario.Where(expression).ToList();
+            Assert.IsNotNull(ListUsuarios);
         }
     }
 }

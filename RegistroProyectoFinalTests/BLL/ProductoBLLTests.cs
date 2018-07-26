@@ -4,6 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using RegistroProyectoFinal.Entidades;
+using RegistroProyectoFinal.DAL;
+using System.Linq.Expressions;
 
 namespace RegistroProyectoFinal.BLL.Tests
 {
@@ -13,31 +16,61 @@ namespace RegistroProyectoFinal.BLL.Tests
         [TestMethod()]
         public void GuardarTest()
         {
-            Assert.Fail();
+            bool paso;
+            Producto producto = new Producto();
+            producto.ProductoId = 3;
+            producto.DepartamentoId = 1;
+            producto.Descripcion = "Manzanas";
+            producto.Costo = 15;
+            producto.Precio = 25;
+            producto.PorCientoGanancia = 10;
+            producto.CantidadIventario = 0; ;
+            paso = ProductoBLL.Guardar(producto);
+            Assert.AreEqual(paso, true);
         }
 
         [TestMethod()]
         public void ModificarTest()
         {
-            Assert.Fail();
+            bool paso;
+            Producto producto = new Producto();
+            producto.ProductoId = 3;
+            producto.DepartamentoId = 1;
+            producto.Descripcion = "Manzanas Verdes";
+            producto.Costo = 18;
+            producto.Precio = 30;
+            producto.PorCientoGanancia = 12;
+            producto.CantidadIventario = 0; ;
+            paso = ProductoBLL.Modificar(producto);
+            Assert.AreEqual(paso, true);
         }
 
         [TestMethod()]
         public void EliminarTest()
         {
-            Assert.Fail();
+            int id = 3;
+            bool paso;
+            paso = ProductoBLL.Eliminar(id);
+            Assert.AreEqual(paso, true);
         }
 
         [TestMethod()]
         public void BuscarTest()
         {
-            Assert.Fail();
+            int id = 2;
+            Producto producto = new Producto();
+            producto = ProductoBLL.Buscar(id);
+            Assert.IsNotNull(producto);
         }
 
         [TestMethod()]
-        public void GetListTest()
+        public void GetListTest(Expression<Func<Producto, bool>> expression)
         {
-            Assert.Fail();
+            Contexto contexto = new Contexto();
+
+            List<Producto> ListProductos = new List<Producto>();
+            ListProductos = contexto.Producto.Where(expression).ToList();
+            Assert.IsNotNull(ListProductos);
         }
 
         [TestMethod()]

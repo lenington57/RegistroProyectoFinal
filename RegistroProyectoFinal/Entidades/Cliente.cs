@@ -33,5 +33,10 @@ namespace RegistroProyectoFinal.Entidades
             Deuda = 0;
         }
 
+        public override string ToString()
+        {
+            return Nombres;
+        }
+
     }
 }

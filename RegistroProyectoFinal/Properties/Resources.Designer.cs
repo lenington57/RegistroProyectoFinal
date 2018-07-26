@@ -123,6 +123,16 @@ namespace RegistroProyectoFinal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap don_quijote_de_la_mancha {
+            get {
+                object obj = ResourceManager.GetObject("don-quijote-de-la-mancha", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Edit_Property_16px {
             get {
                 object obj = ResourceManager.GetObject("Edit Property_16px", resourceCulture);
@@ -176,6 +186,16 @@ namespace RegistroProyectoFinal.Properties {
         internal static System.Drawing.Bitmap Plus_Math_16px {
             get {
                 object obj = ResourceManager.GetObject("Plus Math_16px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Print_16px {
+            get {
+                object obj = ResourceManager.GetObject("Print_16px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

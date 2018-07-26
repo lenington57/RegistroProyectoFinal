@@ -4,6 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using RegistroProyectoFinal.Entidades;
+using RegistroProyectoFinal.DAL;
+using System.Linq.Expressions;
 
 namespace RegistroProyectoFinal.BLL.Tests
 {
@@ -13,31 +16,51 @@ namespace RegistroProyectoFinal.BLL.Tests
         [TestMethod()]
         public void GuardarTest()
         {
-            Assert.Fail();
+            bool paso;
+            Departamento departamento = new Departamento();
+            departamento.DepartamentoId = 3;
+            departamento.Nombre = "Electrodomesticos";
+            paso = DepartamentoBLL.Guardar(departamento);
+            Assert.AreEqual(paso, true);
         }
 
         [TestMethod()]
         public void ModificarTest()
         {
-            Assert.Fail();
+            bool paso;
+            Departamento departamento = new Departamento();
+            departamento.DepartamentoId = 3;
+            departamento.Nombre = "Electrodomesticos y mas";
+            paso = DepartamentoBLL.Modificar(departamento);
+            Assert.AreEqual(paso, true);
         }
 
         [TestMethod()]
         public void EliminarTest()
         {
-            Assert.Fail();
+            int id = 3;
+            bool paso;
+            paso = DepartamentoBLL.Eliminar(id);
+            Assert.AreEqual(paso, true);
         }
 
         [TestMethod()]
         public void BuscarTest()
         {
-            Assert.Fail();
+            int id = 2;
+            Departamento departamento = new Departamento();
+            departamento = DepartamentoBLL.Buscar(id);
+            Assert.IsNotNull(departamento);
         }
 
         [TestMethod()]
-        public void GetListTest()
+        public void GetListTest(Expression<Func<Departamento, bool>> expression)
         {
-            Assert.Fail();
+            Contexto contexto = new Contexto();
+
+            List<Departamento> ListDepartamentos = new List<Departamento>();
+            ListDepartamentos = contexto.Departamento.Where(expression).ToList();
+            Assert.IsNotNull(ListDepartamentos);
         }
     }
 }

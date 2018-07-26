@@ -355,7 +355,7 @@ namespace RegistroProyectoFinal.UI.Registro
                 int id = Convert.ToInt32(FacturaIdNumericUpDown.Value);
                 Factura fac = FacturaBLL.Buscar(id);
 
-                if (factura != null)
+                if (fac != null)
                 {
                     Paso = FacturaBLL.Modificar(LlenaClase());
                 }

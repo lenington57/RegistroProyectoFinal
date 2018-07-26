@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using RegistroProyectoFinal.UI.Registro;
 using RegistroProyectoFinal.UI.Registros;
+using RegistroProyectoFinal.UI.Consultas;
+
 namespace RegistroProyectoFinal
 {
     public partial class Principal : Form
@@ -64,6 +66,55 @@ namespace RegistroProyectoFinal
             RegistrarPago registrarPago = new RegistrarPago();
             registrarPago.MdiParent = this;
             registrarPago.Show();
+        }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultarCliente consultarCliente = new ConsultarCliente();
+            consultarCliente.MdiParent = this;
+            consultarCliente.Show();
+        }
+
+        private void departamentosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultarDepartamentos consultarDepartamentos = new ConsultarDepartamentos();
+            consultarDepartamentos.MdiParent = this;
+            consultarDepartamentos.Show();
+        }
+
+        private void facturasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultarFacturacion consultarFacturacion = new ConsultarFacturacion();
+            consultarFacturacion.MdiParent = this;
+            consultarFacturacion.Show();
+        }
+
+        private void entradasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultarEntradas consultarEntradas = new ConsultarEntradas();
+            consultarEntradas.MdiParent = this;
+            consultarEntradas.Show();
+        }
+
+        private void pagosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultarPago consultarPago = new ConsultarPago();
+            consultarPago.MdiParent = this;
+            consultarPago.Show();
+        }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultarProducto consultarProducto = new ConsultarProducto();
+            consultarProducto.MdiParent = this;
+            consultarProducto.Show();
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultarUsuario consultarUsuario = new ConsultarUsuario();
+            consultarUsuario.MdiParent = this;
+            consultarUsuario.Show();
         }
     }
 }

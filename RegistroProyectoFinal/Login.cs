@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace RegistroProyectoFinal
 {
@@ -17,7 +16,7 @@ namespace RegistroProyectoFinal
             InitializeComponent();
         }
 
-        private void Principal_Load(object sender, EventArgs e)
+        private void Login_Load(object sender, EventArgs e)
         {
 
         }
@@ -54,7 +53,7 @@ namespace RegistroProyectoFinal
 
             Principal principal = new Principal();
             principal.Show();
-            this.Dispose();
+            this.Hide();
         }
     }
 }

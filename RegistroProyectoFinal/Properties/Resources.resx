@@ -130,11 +130,11 @@
   <data name="im-html-o3884083" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\im-html-o3884083.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Delete_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Delete_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Save_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Save_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dinero_43" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dinero_43.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Edit Property_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Edit Property_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,16 +151,22 @@
   <data name="5a9c3f9f03593" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\5a9c3f9f03593.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Delete_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Delete_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="mejores-herramientas-factuacion-electronica-810x607" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mejores-herramientas-factuacion-electronica-810x607.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="comprador" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\comprador.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Print_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Print_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="conf_producto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\conf_producto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Dinero_43" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Dinero_43.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="don-quijote-de-la-mancha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\don-quijote-de-la-mancha.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

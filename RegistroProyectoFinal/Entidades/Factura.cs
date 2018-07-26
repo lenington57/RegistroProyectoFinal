@@ -24,7 +24,7 @@ namespace RegistroProyectoFinal.Entidades
 
         public double Total { get; set; }
 
-        public List<FacturaDetalle> Detalle { get; set; }
+        public virtual List<FacturaDetalle> Detalle { get; set; }
 
 
         public Factura()
@@ -35,6 +35,11 @@ namespace RegistroProyectoFinal.Entidades
         public void AgregarDetalle(int Id, int FacturaId, int ClienteId, int ProductoId, double Cantidad, double Precio, double Importe)
         {
             this.Detalle.Add(new FacturaDetalle(Id, FacturaId, ClienteId, ProductoId, Cantidad, Precio, Importe));
+        }
+
+        public override string ToString()
+        {
+            return FacturaId.ToString();
         }
 
     }
