@@ -16,7 +16,11 @@ namespace RegistroProyectoFinal.Entidades
 
         public string NoTelefono { get; set; }
 
+        public string NoCedula { get; set; }
+
         public string Direccion { get; set; }
+
+        public double Deuda { get; set; }
 
 
         public Cliente()
@@ -24,7 +28,9 @@ namespace RegistroProyectoFinal.Entidades
             ClienteId = 0;
             Nombres = string.Empty;
             NoTelefono = string.Empty;
+            NoCedula = string.Empty;
             Direccion = string.Empty;
+            Deuda = 0;
         }
 
     }

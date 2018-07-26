@@ -26,7 +26,9 @@ namespace RegistroProyectoFinal.UI.Registros
             cliente.ClienteId = Convert.ToInt32(ClienteIdNumericUpDown.Value);
             cliente.Nombres = NombresTextBox.Text;
             cliente.NoTelefono = NoTelefonoMaskedTextBox.Text;
+            cliente.NoCedula = NoCedulaMaskedTextBox.Text;
             cliente.Direccion = DireccionTextBox.Text;
+            cliente.Deuda = 0;
 
             return cliente;
         }
@@ -36,7 +38,9 @@ namespace RegistroProyectoFinal.UI.Registros
             ClienteIdNumericUpDown.Value = 0;
             NombresTextBox.Clear();
             NoTelefonoMaskedTextBox.Clear();
+            NoCedulaMaskedTextBox.Clear();
             DireccionTextBox.Clear();
+            DeudaTextBox.Clear();
             MyErrorProvider.Clear();
         }
 
@@ -54,6 +58,12 @@ namespace RegistroProyectoFinal.UI.Registros
             {
                 MyErrorProvider.SetError(NoTelefonoMaskedTextBox,
                     "Debe ingresar el Número de Teléfono para el cliente");
+                paso = true;
+            }
+            if (String.IsNullOrEmpty(NoCedulaMaskedTextBox.Text))
+            {
+                MyErrorProvider.SetError(NoCedulaMaskedTextBox,
+                    "Debe ingresar el Número de Cédula para el cliente");
                 paso = true;
             }
             if (String.IsNullOrEmpty(DireccionTextBox.Text))
@@ -76,7 +86,9 @@ namespace RegistroProyectoFinal.UI.Registros
             {
                 NombresTextBox.Text = cliente.Nombres;
                 NoTelefonoMaskedTextBox.Text = cliente.NoTelefono;
+                NoCedulaMaskedTextBox.Text = cliente.NoCedula;
                 DireccionTextBox.Text = cliente.Direccion;
+                DeudaTextBox.Text = cliente.Deuda.ToString();
             }
         }
 
@@ -152,5 +164,48 @@ namespace RegistroProyectoFinal.UI.Registros
 
         }
 
+        private void NoTelefonoMaskedTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                MessageBox.Show("Solo se puede digitar Números", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void NombresTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Solo se puede escribir Letras", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = false;
+            }
+        }
     }
 }

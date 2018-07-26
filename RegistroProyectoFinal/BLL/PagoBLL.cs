@@ -7,19 +7,22 @@ using RegistroProyectoFinal.DAL;
 using System.Data.Entity;
 using System.Linq.Expressions;
 
+
 namespace RegistroProyectoFinal.BLL
 {
-    public class ProductoBLL
+    public class PagoBLL
     {
-        public static bool Guardar(Producto producto)
+        public static bool Guardar(Pago pago)
         {
             bool paso = false;
 
             Contexto contexto = new Contexto();
             try
             {
-                if (contexto.Producto.Add(producto) != null)
+                if (contexto.Pago.Add(pago) != null)
                 {
+                    contexto.Cliente.Find(pago.ClienteId).Deuda -= pago.MontoPago;
+
                     contexto.SaveChanges();
                     paso = true;
                 }
@@ -33,14 +36,27 @@ namespace RegistroProyectoFinal.BLL
         }
 
 
-        public static bool Modificar(Producto producto)
+        public static bool Modificar(Pago pago)
         {
             bool paso = false;
 
             Contexto contexto = new Contexto();
             try
             {
-                contexto.Entry(producto).State = EntityState.Modified;
+                Pago PagoAnt = PagoBLL.Buscar(pago.PagoId);
+
+                if (PagoAnt.ClienteId != pago.ClienteId)
+                {
+                    ModificarBien(pago, PagoAnt);
+                }
+
+                double modificado = pago.MontoPago - PagoAnt.MontoPago;
+
+                var Cliente = contexto.Cliente.Find(pago.ClienteId);
+                Cliente.Deuda += modificado;
+                ClienteBLL.Modificar(Cliente);
+
+                contexto.Entry(pago).State = EntityState.Modified;
                 if (contexto.SaveChanges() > 0)
                 {
                     paso = true;
@@ -62,9 +78,11 @@ namespace RegistroProyectoFinal.BLL
             Contexto contexto = new Contexto();
             try
             {
-                Producto producto = contexto.Producto.Find(id);
+                Pago pago = contexto.Pago.Find(id);
 
-                contexto.Producto.Remove(producto);
+                contexto.Cliente.Find(pago.ClienteId).Deuda += pago.MontoPago;
+
+                contexto.Pago.Remove(pago);
 
                 if (contexto.SaveChanges() > 0)
                 {
@@ -80,31 +98,32 @@ namespace RegistroProyectoFinal.BLL
         }
 
 
-        public static Producto Buscar(int id)
+        public static Pago Buscar(int id)
         {
             Contexto contexto = new Contexto();
-            Producto producto = new Producto();
+            Pago pago = new Pago();
+
             try
             {
-                producto = contexto.Producto.Find(id);
+                pago = contexto.Pago.Find(id);
                 contexto.Dispose();
             }
             catch (Exception)
             {
                 throw;
             }
-            return producto;
+            return pago;
         }
 
 
-        public static List<Producto> GetList(Expression<Func<Producto, bool>> expression)
+        public static List<Pago> GetList(Expression<Func<Pago, bool>> expression)
         {
-            List<Producto> productos = new List<Producto>();
+            List<Pago> pagos = new List<Pago>();
             Contexto contexto = new Contexto();
 
             try
             {
-                productos = contexto.Producto.Where(expression).ToList();
+                pagos = contexto.Pago.Where(expression).ToList();
                 contexto.Dispose();
             }
             catch (Exception)
@@ -112,18 +131,19 @@ namespace RegistroProyectoFinal.BLL
                 throw;
             }
 
-            return productos;
+            return pagos;
         }
 
-        public static double PorcientoGanancia(double costo, double precio)
+        public static void ModificarBien(Pago pago, Pago PagoAnterior)
         {
-            double PctGanancia;
+            Contexto contexto = new Contexto();
+            var Cliente = contexto.Cliente.Find(pago.ClienteId);
+            var ClienteAnterior = contexto.Cliente.Find(PagoAnterior.ClienteId);
 
-            PctGanancia = precio - costo;
-            PctGanancia = PctGanancia / costo;
-            PctGanancia *= 100;
-
-            return PctGanancia;
+            Cliente.Deuda += pago.MontoPago;
+            ClienteAnterior.Deuda -= PagoAnterior.MontoPago;
+            ClienteBLL.Modificar(Cliente);
+            ClienteBLL.Modificar(ClienteAnterior);
         }
 
     }

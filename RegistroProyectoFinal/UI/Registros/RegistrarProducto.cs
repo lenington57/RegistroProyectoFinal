@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using RegistroProyectoFinal.Entidades;
 using RegistroProyectoFinal.BLL;
+using RegistroProyectoFinal.DAL;
 
 namespace RegistroProyectoFinal.UI.Registro
 {
@@ -16,25 +17,31 @@ namespace RegistroProyectoFinal.UI.Registro
         public RegistrarProducto()
         {
             InitializeComponent();
-        }
-
-        private void RegistrarProducto_Load(object sender, EventArgs e)
-        {
-
+            LlenarComboBox();
         }
 
         //Métodos
+        private void LlenarComboBox()
+        {
+            Repositorio<Departamento> DepRepositorio = new Repositorio<Departamento>(new Contexto());
+
+            DepartamentoComboBox.DataSource = DepRepositorio.GetList(c => true);
+            DepartamentoComboBox.ValueMember = "DepartamentoId";
+            DepartamentoComboBox.DisplayMember = "Nombre";
+        }
+
         private Producto LlenaClase()
         {
             Producto producto = new Producto();
 
             producto.ProductoId = Convert.ToInt32(ProductoIdNumericUpDown.Value);
+            producto.DepartamentoId = Convert.ToInt32(DepartamentoComboBox.SelectedValue);
             producto.FechaVencimiento = FechaDateTimePicker.Value;
             producto.Descripcion = DescripcionTextBox.Text;
             producto.Costo = Convert.ToDouble(CostoTextBox.Text);
             producto.Precio = Convert.ToDouble(PrecioTextBox.Text);
             producto.PorCientoGanancia = Convert.ToDouble(PctGananciaTextBox.Text);
-            producto.CantidadIventario = Convert.ToDouble(InventarioTextBox.Text);
+            producto.CantidadIventario = 0;
 
             return producto;
         }
@@ -43,11 +50,28 @@ namespace RegistroProyectoFinal.UI.Registro
         {
             ProductoIdNumericUpDown.Value = 0;
             FechaDateTimePicker.Value = DateTime.Now;
+            DepartamentoComboBox.SelectedIndex = 0;
             DescripcionTextBox.Clear();
             CostoTextBox.Clear();
             PrecioTextBox.Clear();
             PctGananciaTextBox.Clear();
             InventarioTextBox.Clear();
+        }
+
+        private double ToDouble(object valor)
+        {
+            double retorno = 0;
+            double.TryParse(valor.ToString(), out retorno);
+
+            return Convert.ToDouble(retorno);
+        }
+
+        private void CalcularGanancia()
+        {
+            double costo, precio;
+            costo = ToDouble(CostoTextBox.Text);
+            precio = ToDouble(PrecioTextBox.Text);
+            PctGananciaTextBox.Text = ProductoBLL.PorcientoGanancia(costo, precio).ToString();
         }
 
         private bool HayErrores()
@@ -83,6 +107,7 @@ namespace RegistroProyectoFinal.UI.Registro
 
             if (producto != null)
             {
+                DepartamentoComboBox.SelectedValue = producto.DepartamentoId;
                 DescripcionTextBox.Text = producto.Descripcion;
                 CostoTextBox.Text = producto.Costo.ToString();
                 PrecioTextBox.Text = producto.Precio.ToString();
@@ -151,6 +176,72 @@ namespace RegistroProyectoFinal.UI.Registro
             }
             else
                 MessageBox.Show("No existe!!", "Falló", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        //Eventos de los Objetos
+        private void RegistrarProducto_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CostoTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (PrecioTextBox.Text != string.Empty)
+            {
+                CalcularGanancia();
+            }
+        }
+
+        private void PrecioTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (PrecioTextBox.Text != string.Empty)
+            {
+                CalcularGanancia();
+            }
+        }
+
+        private void CostoTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                MessageBox.Show("Solo se puede digitar Números", "Falló",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void PrecioTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                MessageBox.Show("Solo se puede digitar Números", "Falló",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -20,6 +20,13 @@ namespace RegistroProyectoFinal.BLL
             {
                 if (contexto.Factura.Add(factura) != null)
                 {
+                    foreach (var item in factura.Detalle)
+                    {
+                        contexto.Producto.Find(item.ProductoId).CantidadIventario -= item.Cantidad;
+                    }
+
+                    contexto.Cliente.Find(factura.ClienteId).Deuda += factura.Total;
+
                     contexto.SaveChanges();
                     paso = true;
                 }
@@ -63,6 +70,12 @@ namespace RegistroProyectoFinal.BLL
             try
             {
                 Factura factura = contexto.Factura.Find(id);
+
+                foreach (var item in factura.Detalle)
+                {
+                    contexto.Producto.Find(item.ProductoId).CantidadIventario += item.Cantidad;
+                }
+                contexto.Cliente.Find(factura.ClienteId).Deuda -= factura.Total;
 
                 contexto.Factura.Remove(factura);
 
@@ -115,5 +128,12 @@ namespace RegistroProyectoFinal.BLL
             return facturas;
         }
 
+        public static double Importe(double cantidad, double precio)
+        {
+            double CalImporte = 0;
+            CalImporte = cantidad * precio;
+
+            return CalImporte;
+        }
     }
 }

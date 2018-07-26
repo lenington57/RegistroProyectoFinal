@@ -55,6 +55,7 @@
     <Compile Include="BLL\EntradasBLL.cs" />
     <Compile Include="BLL\FacturaBLL.cs" />
     <Compile Include="BLL\IRepository.cs" />
+    <Compile Include="BLL\PagoBLL.cs" />
     <Compile Include="BLL\ProductoBLL.cs" />
     <Compile Include="BLL\Repositorio.cs" />
     <Compile Include="BLL\UsuarioBLL.cs" />
@@ -64,19 +65,20 @@
     <Compile Include="Entidades\Entradas.cs" />
     <Compile Include="Entidades\Factura.cs" />
     <Compile Include="Entidades\FacturaDetalle.cs" />
+    <Compile Include="Entidades\Pago.cs" />
     <Compile Include="Entidades\Producto.cs" />
     <Compile Include="Entidades\Usuario.cs" />
-    <Compile Include="Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,6 +87,12 @@
     </Compile>
     <Compile Include="UI\Registros\RegistrarCliente.Designer.cs">
       <DependentUpon>RegistrarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\RegistrarDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\RegistrarDepartamento.Designer.cs">
+      <DependentUpon>RegistrarDepartamento.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Registros\RegistrarEntradaProducto.cs">
       <SubType>Form</SubType>
@@ -98,6 +106,12 @@
     <Compile Include="UI\Registros\RegistrarFacturacion.Designer.cs">
       <DependentUpon>RegistrarFacturacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Registros\RegistrarPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\RegistrarPago.Designer.cs">
+      <DependentUpon>RegistrarPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Registros\RegistrarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,11 +124,11 @@
     <Compile Include="UI\Registros\RegistrarUsuario.Designer.cs">
       <DependentUpon>RegistrarUsuario.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -129,11 +143,17 @@
     <EmbeddedResource Include="UI\Registros\RegistrarCliente.resx">
       <DependentUpon>RegistrarCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\RegistrarDepartamento.resx">
+      <DependentUpon>RegistrarDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\RegistrarEntradaProducto.resx">
       <DependentUpon>RegistrarEntradaProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\RegistrarFacturacion.resx">
       <DependentUpon>RegistrarFacturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\RegistrarPago.resx">
+      <DependentUpon>RegistrarPago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\RegistrarProducto.resx">
       <DependentUpon>RegistrarProducto.cs</DependentUpon>
@@ -154,7 +174,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DAL\Scripts\" />
     <Folder Include="UI\Consultas\" />
     <Folder Include="UI\Reportes\" />
   </ItemGroup>
@@ -193,6 +212,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\comprador.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5a9c3f9f03593.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5a00d2c17275a.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dinero_43.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DAL\Scripts\Scriptss.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -36,10 +36,12 @@
             this.nuevoProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entradaProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturaciónProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ConsultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AyudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarDepartamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConsultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AyudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarPagoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,8 +54,8 @@
             this.AyudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(308, 24);
-            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Size = new System.Drawing.Size(294, 24);
+            this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // ArchivoToolStripMenuItem
@@ -70,7 +72,6 @@
             this.cambiarDeUsuarioToolStripMenuItem.Name = "cambiarDeUsuarioToolStripMenuItem";
             this.cambiarDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.cambiarDeUsuarioToolStripMenuItem.Text = "Cambiar de Usuario";
-            this.cambiarDeUsuarioToolStripMenuItem.Click += new System.EventHandler(this.cambiarDeUsuarioToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
@@ -85,32 +86,54 @@
             this.entradaProductoToolStripMenuItem,
             this.facturaciónProductosToolStripMenuItem,
             this.registrarClienteToolStripMenuItem,
-            this.registrarUsuarioToolStripMenuItem});
+            this.registrarUsuarioToolStripMenuItem,
+            this.registrarDepartamentoToolStripMenuItem,
+            this.registrarPagoToolStripMenuItem});
             this.RegistrosToolStripMenuItem.Name = "RegistrosToolStripMenuItem";
             this.RegistrosToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.RegistrosToolStripMenuItem.Text = "Registros";
-            this.RegistrosToolStripMenuItem.Click += new System.EventHandler(this.RegistrosToolStripMenuItem_Click);
             // 
             // nuevoProductoToolStripMenuItem
             // 
             this.nuevoProductoToolStripMenuItem.Name = "nuevoProductoToolStripMenuItem";
-            this.nuevoProductoToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.nuevoProductoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.nuevoProductoToolStripMenuItem.Text = "Nuevo Producto";
             this.nuevoProductoToolStripMenuItem.Click += new System.EventHandler(this.nuevoProductoToolStripMenuItem_Click);
             // 
             // entradaProductoToolStripMenuItem
             // 
             this.entradaProductoToolStripMenuItem.Name = "entradaProductoToolStripMenuItem";
-            this.entradaProductoToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.entradaProductoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.entradaProductoToolStripMenuItem.Text = "Entrada Producto";
             this.entradaProductoToolStripMenuItem.Click += new System.EventHandler(this.entradaProductoToolStripMenuItem_Click);
             // 
             // facturaciónProductosToolStripMenuItem
             // 
             this.facturaciónProductosToolStripMenuItem.Name = "facturaciónProductosToolStripMenuItem";
-            this.facturaciónProductosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.facturaciónProductosToolStripMenuItem.Text = "Facturación Productos";
+            this.facturaciónProductosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.facturaciónProductosToolStripMenuItem.Text = "Facturación ";
             this.facturaciónProductosToolStripMenuItem.Click += new System.EventHandler(this.facturaciónProductosToolStripMenuItem_Click);
+            // 
+            // registrarClienteToolStripMenuItem
+            // 
+            this.registrarClienteToolStripMenuItem.Name = "registrarClienteToolStripMenuItem";
+            this.registrarClienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.registrarClienteToolStripMenuItem.Text = "Cliente";
+            this.registrarClienteToolStripMenuItem.Click += new System.EventHandler(this.registrarClienteToolStripMenuItem_Click);
+            // 
+            // registrarUsuarioToolStripMenuItem
+            // 
+            this.registrarUsuarioToolStripMenuItem.Name = "registrarUsuarioToolStripMenuItem";
+            this.registrarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.registrarUsuarioToolStripMenuItem.Text = "Usuario";
+            this.registrarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.registrarUsuarioToolStripMenuItem_Click);
+            // 
+            // registrarDepartamentoToolStripMenuItem
+            // 
+            this.registrarDepartamentoToolStripMenuItem.Name = "registrarDepartamentoToolStripMenuItem";
+            this.registrarDepartamentoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.registrarDepartamentoToolStripMenuItem.Text = "Departamento";
+            this.registrarDepartamentoToolStripMenuItem.Click += new System.EventHandler(this.registrarDepartamentoToolStripMenuItem_Click);
             // 
             // ConsultasToolStripMenuItem
             // 
@@ -124,31 +147,23 @@
             this.AyudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.AyudaToolStripMenuItem.Text = "Ayuda";
             // 
-            // registrarClienteToolStripMenuItem
+            // registrarPagoToolStripMenuItem
             // 
-            this.registrarClienteToolStripMenuItem.Name = "registrarClienteToolStripMenuItem";
-            this.registrarClienteToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.registrarClienteToolStripMenuItem.Text = "Registrar Cliente";
-            this.registrarClienteToolStripMenuItem.Click += new System.EventHandler(this.registrarClienteToolStripMenuItem_Click);
-            // 
-            // registrarUsuarioToolStripMenuItem
-            // 
-            this.registrarUsuarioToolStripMenuItem.Name = "registrarUsuarioToolStripMenuItem";
-            this.registrarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.registrarUsuarioToolStripMenuItem.Text = "Registrar Usuario";
-            this.registrarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.registrarUsuarioToolStripMenuItem_Click);
+            this.registrarPagoToolStripMenuItem.Name = "registrarPagoToolStripMenuItem";
+            this.registrarPagoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.registrarPagoToolStripMenuItem.Text = "Pago";
+            this.registrarPagoToolStripMenuItem.Click += new System.EventHandler(this.registrarPagoToolStripMenuItem_Click);
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(308, 358);
+            this.ClientSize = new System.Drawing.Size(294, 331);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Principal";
-            this.Text = "QuijoteFactura";
-            this.Load += new System.EventHandler(this.Principal_Load);
+            this.Text = "Quijote Factura";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -160,16 +175,17 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem ArchivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem RegistrosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ConsultasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem AyudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cambiarDeUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RegistrosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevoProductoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem entradaProductoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem facturaciónProductosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarClienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarUsuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ConsultasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AyudaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrarDepartamentoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrarPagoToolStripMenuItem;
     }
 }
-

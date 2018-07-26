@@ -20,6 +20,8 @@ namespace RegistroProyectoFinal.BLL
             {
                 if (contexto.Entrada.Add(entrada) != null)
                 {
+                    contexto.Producto.Find(entrada.ProductoId).CantidadIventario += entrada.Cantidad;
+
                     contexto.SaveChanges();
                     paso = true;
                 }
@@ -40,6 +42,19 @@ namespace RegistroProyectoFinal.BLL
             Contexto contexto = new Contexto();
             try
             {
+                Entradas EntrAnt = EntradasBLL.Buscar(entrada.EntradaId);
+
+                if (EntrAnt.ProductoId != entrada.ProductoId)
+                {
+                    ModificarBien(entrada, EntrAnt);
+                }
+
+                double modificado = entrada.Cantidad - EntrAnt.Cantidad;
+
+                var Producto = contexto.Producto.Find(entrada.ProductoId);
+                Producto.CantidadIventario += modificado;
+                ProductoBLL.Modificar(Producto);
+
                 contexto.Entry(entrada).State = EntityState.Modified;
                 if (contexto.SaveChanges() > 0)
                 {
@@ -63,6 +78,8 @@ namespace RegistroProyectoFinal.BLL
             try
             {
                 Entradas entrada = contexto.Entrada.Find(id);
+
+                contexto.Producto.Find(entrada.ProductoId).CantidadIventario -= entrada.Cantidad;
 
                 contexto.Entrada.Remove(entrada);
 
@@ -114,6 +131,18 @@ namespace RegistroProyectoFinal.BLL
             }
 
             return entradas;
+        }
+
+        public static void ModificarBien(Entradas entradas, Entradas EntradasAnteriores)
+        {
+            Contexto contexto = new Contexto();
+            var Producto = contexto.Producto.Find(entradas.ProductoId);
+            var ProductosAnteriores = contexto.Producto.Find(EntradasAnteriores.ProductoId);
+
+            Producto.CantidadIventario += entradas.Cantidad;
+            ProductosAnteriores.CantidadIventario -= EntradasAnteriores.Cantidad;
+            ProductoBLL.Modificar(Producto);
+            ProductoBLL.Modificar(ProductosAnteriores);
         }
 
     }

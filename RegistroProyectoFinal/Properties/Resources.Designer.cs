@@ -63,6 +63,26 @@ namespace RegistroProyectoFinal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _5a00d2c17275a {
+            get {
+                object obj = ResourceManager.GetObject("5a00d2c17275a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _5a9c3f9f03593 {
+            get {
+                object obj = ResourceManager.GetObject("5a9c3f9f03593", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap comprador {
             get {
                 object obj = ResourceManager.GetObject("comprador", resourceCulture);
@@ -86,6 +106,16 @@ namespace RegistroProyectoFinal.Properties {
         internal static System.Drawing.Bitmap Delete_16px {
             get {
                 object obj = ResourceManager.GetObject("Delete_16px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dinero_43 {
+            get {
+                object obj = ResourceManager.GetObject("Dinero_43", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

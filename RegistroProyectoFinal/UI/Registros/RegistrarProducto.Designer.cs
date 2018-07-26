@@ -48,13 +48,15 @@
             this.GuardarButton = new System.Windows.Forms.Button();
             this.NuevoButton = new System.Windows.Forms.Button();
             this.MyErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.DepartamentoComboBox = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ProductoIdNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // InventarioTextBox
             // 
-            this.InventarioTextBox.Location = new System.Drawing.Point(214, 127);
+            this.InventarioTextBox.Location = new System.Drawing.Point(205, 200);
             this.InventarioTextBox.Name = "InventarioTextBox";
             this.InventarioTextBox.ReadOnly = true;
             this.InventarioTextBox.Size = new System.Drawing.Size(65, 20);
@@ -63,7 +65,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(162, 130);
+            this.label6.Location = new System.Drawing.Point(146, 207);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 13);
             this.label6.TabIndex = 68;
@@ -71,7 +73,7 @@
             // 
             // PctGananciaTextBox
             // 
-            this.PctGananciaTextBox.Location = new System.Drawing.Point(214, 161);
+            this.PctGananciaTextBox.Location = new System.Drawing.Point(205, 166);
             this.PctGananciaTextBox.Name = "PctGananciaTextBox";
             this.PctGananciaTextBox.ReadOnly = true;
             this.PctGananciaTextBox.Size = new System.Drawing.Size(65, 20);
@@ -80,7 +82,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(155, 168);
+            this.label5.Location = new System.Drawing.Point(146, 173);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 13);
             this.label5.TabIndex = 66;
@@ -88,15 +90,17 @@
             // 
             // PrecioTextBox
             // 
-            this.PrecioTextBox.Location = new System.Drawing.Point(75, 161);
+            this.PrecioTextBox.Location = new System.Drawing.Point(66, 200);
             this.PrecioTextBox.Name = "PrecioTextBox";
             this.PrecioTextBox.Size = new System.Drawing.Size(78, 20);
             this.PrecioTextBox.TabIndex = 65;
+            this.PrecioTextBox.TextChanged += new System.EventHandler(this.PrecioTextBox_TextChanged);
+            this.PrecioTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PrecioTextBox_KeyPress);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 168);
+            this.label4.Location = new System.Drawing.Point(26, 207);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 64;
@@ -104,15 +108,17 @@
             // 
             // CostoTextBox
             // 
-            this.CostoTextBox.Location = new System.Drawing.Point(75, 127);
+            this.CostoTextBox.Location = new System.Drawing.Point(66, 166);
             this.CostoTextBox.Name = "CostoTextBox";
             this.CostoTextBox.Size = new System.Drawing.Size(78, 20);
             this.CostoTextBox.TabIndex = 63;
+            this.CostoTextBox.TextChanged += new System.EventHandler(this.CostoTextBox_TextChanged);
+            this.CostoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CostoTextBox_KeyPress);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(35, 134);
+            this.label3.Location = new System.Drawing.Point(26, 173);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 62;
@@ -120,7 +126,7 @@
             // 
             // DescripcionTextBox
             // 
-            this.DescripcionTextBox.Location = new System.Drawing.Point(94, 90);
+            this.DescripcionTextBox.Location = new System.Drawing.Point(85, 129);
             this.DescripcionTextBox.Name = "DescripcionTextBox";
             this.DescripcionTextBox.Size = new System.Drawing.Size(185, 20);
             this.DescripcionTextBox.TabIndex = 61;
@@ -128,7 +134,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(35, 97);
+            this.label2.Location = new System.Drawing.Point(26, 136);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 60;
@@ -136,7 +142,7 @@
             // 
             // ProductoIdNumericUpDown
             // 
-            this.ProductoIdNumericUpDown.Location = new System.Drawing.Point(94, 22);
+            this.ProductoIdNumericUpDown.Location = new System.Drawing.Point(85, 20);
             this.ProductoIdNumericUpDown.Name = "ProductoIdNumericUpDown";
             this.ProductoIdNumericUpDown.Size = new System.Drawing.Size(75, 20);
             this.ProductoIdNumericUpDown.TabIndex = 59;
@@ -144,7 +150,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 31);
+            this.label1.Location = new System.Drawing.Point(26, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 13);
             this.label1.TabIndex = 58;
@@ -154,7 +160,7 @@
             // 
             this.BuscarButton.BackgroundImage = global::RegistroProyectoFinal.Properties.Resources.Search_16px;
             this.BuscarButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.BuscarButton.Location = new System.Drawing.Point(175, 19);
+            this.BuscarButton.Location = new System.Drawing.Point(166, 17);
             this.BuscarButton.Name = "BuscarButton";
             this.BuscarButton.Size = new System.Drawing.Size(89, 23);
             this.BuscarButton.TabIndex = 57;
@@ -166,7 +172,7 @@
             // 
             this.FechaDateTimePicker.CustomFormat = "dd/MM/yy";
             this.FechaDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.FechaDateTimePicker.Location = new System.Drawing.Point(154, 59);
+            this.FechaDateTimePicker.Location = new System.Drawing.Point(145, 57);
             this.FechaDateTimePicker.Name = "FechaDateTimePicker";
             this.FechaDateTimePicker.Size = new System.Drawing.Size(110, 20);
             this.FechaDateTimePicker.TabIndex = 71;
@@ -174,7 +180,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(35, 66);
+            this.label7.Location = new System.Drawing.Point(26, 64);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(113, 13);
             this.label7.TabIndex = 70;
@@ -184,7 +190,7 @@
             // 
             this.EliminarButton.BackgroundImage = global::RegistroProyectoFinal.Properties.Resources.Delete_16px;
             this.EliminarButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.EliminarButton.Location = new System.Drawing.Point(204, 205);
+            this.EliminarButton.Location = new System.Drawing.Point(204, 246);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(80, 23);
             this.EliminarButton.TabIndex = 74;
@@ -196,7 +202,7 @@
             // 
             this.GuardarButton.BackgroundImage = global::RegistroProyectoFinal.Properties.Resources.Save_16px;
             this.GuardarButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.GuardarButton.Location = new System.Drawing.Point(106, 205);
+            this.GuardarButton.Location = new System.Drawing.Point(106, 246);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(75, 23);
             this.GuardarButton.TabIndex = 73;
@@ -208,7 +214,7 @@
             // 
             this.NuevoButton.BackgroundImage = global::RegistroProyectoFinal.Properties.Resources.Edit_Property_16px;
             this.NuevoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.NuevoButton.Location = new System.Drawing.Point(12, 205);
+            this.NuevoButton.Location = new System.Drawing.Point(12, 246);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(73, 23);
             this.NuevoButton.TabIndex = 72;
@@ -220,13 +226,33 @@
             // 
             this.MyErrorProvider.ContainerControl = this;
             // 
+            // DepartamentoComboBox
+            // 
+            this.DepartamentoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DepartamentoComboBox.FormattingEnabled = true;
+            this.DepartamentoComboBox.Location = new System.Drawing.Point(97, 95);
+            this.DepartamentoComboBox.Name = "DepartamentoComboBox";
+            this.DepartamentoComboBox.Size = new System.Drawing.Size(158, 21);
+            this.DepartamentoComboBox.TabIndex = 79;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(26, 103);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(74, 13);
+            this.label8.TabIndex = 78;
+            this.label8.Text = "Departamento";
+            // 
             // RegistrarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::RegistroProyectoFinal.Properties.Resources.new_product_seal_23_2147503128;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(296, 240);
+            this.ClientSize = new System.Drawing.Size(296, 299);
+            this.Controls.Add(this.DepartamentoComboBox);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.EliminarButton);
             this.Controls.Add(this.GuardarButton);
             this.Controls.Add(this.NuevoButton);
@@ -276,5 +302,7 @@
         private System.Windows.Forms.Button GuardarButton;
         private System.Windows.Forms.Button NuevoButton;
         private System.Windows.Forms.ErrorProvider MyErrorProvider;
+        private System.Windows.Forms.ComboBox DepartamentoComboBox;
+        private System.Windows.Forms.Label label8;
     }
 }
