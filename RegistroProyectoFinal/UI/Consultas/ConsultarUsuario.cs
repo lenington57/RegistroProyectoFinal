@@ -9,11 +9,14 @@ using System.Windows.Forms;
 using System.Linq.Expressions;
 using RegistroProyectoFinal.BLL;
 using RegistroProyectoFinal.Entidades;
+using RegistroProyectoFinal.UI.Reportes;
 
 namespace RegistroProyectoFinal.UI.Consultas
 {
     public partial class ConsultarUsuario : Form
     {
+        private List<Usuario> usuarios = new List<Usuario>();
+
         public ConsultarUsuario()
         {
             InitializeComponent();
@@ -43,7 +46,19 @@ namespace RegistroProyectoFinal.UI.Consultas
                     break;
             }
 
-            UsuarioConsultaDataGridView.DataSource = UsuarioBLL.GetList(filtro);
+            usuarios = UsuarioBLL.GetList(filtro);
+            UsuarioConsultaDataGridView.DataSource = usuarios;
+        }
+
+        private void buttonImprimir_Click(object sender, EventArgs e)
+        {
+            if (usuarios.Count == 0)
+            {
+                MessageBox.Show("No hay datos pra mostrar en el Reporte");
+                return;
+            }
+            UsuariosReviewer usuariosReviewer = new UsuariosReviewer(usuarios);
+            usuariosReviewer.ShowDialog();
         }
     }
 }

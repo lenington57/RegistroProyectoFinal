@@ -9,11 +9,14 @@ using System.Windows.Forms;
 using System.Linq.Expressions;
 using RegistroProyectoFinal.BLL;
 using RegistroProyectoFinal.Entidades;
+using RegistroProyectoFinal.UI.Reportes;
 
 namespace RegistroProyectoFinal.UI.Consultas
 {
     public partial class ConsultarEntradas : Form
     {
+        private List<Entradas> entradas = new List<Entradas>();
+
         public ConsultarEntradas()
         {
             InitializeComponent();
@@ -40,7 +43,8 @@ namespace RegistroProyectoFinal.UI.Consultas
                     break;
             }
 
-            EntradasConsultaDataGridView.DataSource = EntradasBLL.GetList(filtro);
+            entradas = EntradasBLL.GetList(filtro);
+            EntradasConsultaDataGridView.DataSource = entradas;
         }
 
         private void FiltroComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,5 +60,17 @@ namespace RegistroProyectoFinal.UI.Consultas
                 CriterioLabel.Visible = true;
             }
         }
+
+        private void buttonImprimir_Click(object sender, EventArgs e)
+        {
+            if (entradas.Count == 0)
+            {
+                MessageBox.Show("No hay datos pra mostrar en el Reporte");
+                return;
+            }
+            EntradasReviewer entradasReviewer = new EntradasReviewer(entradas);
+            entradasReviewer.ShowDialog();
+        }
+    
     }
 }

@@ -9,11 +9,14 @@ using System.Windows.Forms;
 using System.Linq.Expressions;
 using RegistroProyectoFinal.BLL;
 using RegistroProyectoFinal.Entidades;
+using RegistroProyectoFinal.UI.Reportes;
 
 namespace RegistroProyectoFinal.UI.Consultas
 {
     public partial class ConsultarDepartamentos : Form
     {
+        private List<Departamento> departamentos = new List<Departamento>();
+
         public ConsultarDepartamentos()
         {
             InitializeComponent();
@@ -34,7 +37,19 @@ namespace RegistroProyectoFinal.UI.Consultas
                     break;
             }
 
-            DepartamentoConsultaDataGridView.DataSource = DepartamentoBLL.GetList(filtro);
+            departamentos = DepartamentoBLL.GetList(filtro);
+            DepartamentoConsultaDataGridView.DataSource = departamentos;
+        }
+
+        private void buttonImprimir_Click(object sender, EventArgs e)
+        {
+            if (departamentos.Count == 0)
+            {
+                MessageBox.Show("No hay datos pra mostrar en el Reporte");
+                return;
+            }
+            DepartamentosReviewer departamentosReviewer = new DepartamentosReviewer(departamentos);
+            departamentosReviewer.ShowDialog();
         }
     }
 }

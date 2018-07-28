@@ -33,6 +33,7 @@ namespace RegistroProyectoFinal.UI.Registros
         {
             DepartamentoIdNumericUpDown.Value = 0;
             NombreTextBox.Clear();
+            MyErrorProvider.Clear();
         }
 
         private bool HayErrores()

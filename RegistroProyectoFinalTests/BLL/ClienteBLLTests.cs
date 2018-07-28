@@ -18,11 +18,11 @@ namespace RegistroProyectoFinal.BLL.Tests
         {
             bool paso;
             Cliente cliente = new Cliente();
-            cliente.ClienteId = 3;
-            cliente.Nombres = "Juan Francisco";
+            cliente.ClienteId = 2;
+            cliente.Nombres = "Francisco";
             cliente.NoTelefono = "9876543210";
             cliente.NoCedula = "88888888888";
-            cliente.Direccion = "San Francisco";
+            cliente.Direccion = "San";
             cliente.Deuda = 0;
             paso = ClienteBLL.Guardar(cliente);
             Assert.AreEqual(paso, true);

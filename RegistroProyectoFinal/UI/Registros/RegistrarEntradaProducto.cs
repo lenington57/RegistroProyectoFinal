@@ -139,6 +139,5 @@ namespace RegistroProyectoFinal.UI.Registro
             else
                 MessageBox.Show("No existe!!", "Falló", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
     }
 }

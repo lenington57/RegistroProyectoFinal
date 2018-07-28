@@ -18,11 +18,11 @@ namespace RegistroProyectoFinal.BLL.Tests
         {
             bool paso;
             Usuario usuario = new Usuario();
-            usuario.UsuarioId = 3;
-            usuario.Nombres = "Julio Alberto";
+            usuario.UsuarioId = 1;
+            usuario.Nombres = "Lenington del Orbe";
             usuario.NoTelefono = "1234567890";
-            usuario.Email = "Jalbert@gmail.com";
-            usuario.Contraseña = "1875";
+            usuario.Email = "yonose@gmail.com";
+            usuario.Contraseña = "12356";
             paso = UsuarioBLL.Guardar(usuario);
             Assert.AreEqual(paso, true);
         }

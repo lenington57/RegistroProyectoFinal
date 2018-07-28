@@ -53,7 +53,7 @@
             // 
             this.EliminarButton.BackgroundImage = global::RegistroProyectoFinal.Properties.Resources.Delete_16px;
             this.EliminarButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.EliminarButton.Location = new System.Drawing.Point(207, 107);
+            this.EliminarButton.Location = new System.Drawing.Point(206, 110);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(86, 23);
             this.EliminarButton.TabIndex = 62;
@@ -65,7 +65,7 @@
             // 
             this.GuardarButton.BackgroundImage = global::RegistroProyectoFinal.Properties.Resources.Save_16px;
             this.GuardarButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.GuardarButton.Location = new System.Drawing.Point(104, 107);
+            this.GuardarButton.Location = new System.Drawing.Point(103, 110);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(86, 23);
             this.GuardarButton.TabIndex = 61;
@@ -77,7 +77,7 @@
             // 
             this.NuevoButton.BackgroundImage = global::RegistroProyectoFinal.Properties.Resources.Edit_Property_16px;
             this.NuevoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.NuevoButton.Location = new System.Drawing.Point(2, 107);
+            this.NuevoButton.Location = new System.Drawing.Point(1, 110);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(86, 23);
             this.NuevoButton.TabIndex = 60;
@@ -133,7 +133,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::RegistroProyectoFinal.Properties.Resources._5a00d2c17275a;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(295, 142);
+            this.ClientSize = new System.Drawing.Size(295, 150);
             this.Controls.Add(this.NombreTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

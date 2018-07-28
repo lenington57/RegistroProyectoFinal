@@ -79,7 +79,6 @@ namespace RegistroProyectoFinal.UI.Registro
                 factura.AgregarDetalle(
                     ToInt(item.Cells["Id"].Value),
                     ToInt(item.Cells["FacturaId"].Value),
-                    ToInt(item.Cells["ClienteId"].Value),
                     ToInt(item.Cells["ProductoId"].Value),
                     ToDouble(item.Cells["Cantidad"].Value),
                     ToDouble(item.Cells["Precio"].Value),
@@ -286,7 +285,6 @@ namespace RegistroProyectoFinal.UI.Registro
                     new FacturaDetalle(
                        id: 0,
                        facturaId: (int)FacturaIdNumericUpDown.Value,
-                       clienteId: (int)ClienteComboBox.SelectedValue,
                        productoId: (int)ProductoComboBox.SelectedValue,
                        cantidad: (double)Convert.ToDouble(CantidadTextBox.Text),
                        precio: (double)Convert.ToDouble(PrecioTextBox.Text),
@@ -349,7 +347,11 @@ namespace RegistroProyectoFinal.UI.Registro
             factura = LlenaClase();
 
             if (FacturaIdNumericUpDown.Value == 0)
+            {
                 Paso = FacturaBLL.Guardar(factura);
+                MessageBox.Show("Guardado!!", "Exito",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             else
             {
                 int id = Convert.ToInt32(FacturaIdNumericUpDown.Value);
@@ -357,7 +359,9 @@ namespace RegistroProyectoFinal.UI.Registro
 
                 if (fac != null)
                 {
-                    Paso = FacturaBLL.Modificar(LlenaClase());
+                    Paso = FacturaBLL.Modificar(factura);
+                    MessageBox.Show("Modificado!!", "Exito",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                     MessageBox.Show("Id no existe", "Falló",
@@ -420,13 +424,13 @@ namespace RegistroProyectoFinal.UI.Registro
 
         private void CantidadTextBox_TextChanged(object sender, EventArgs e)
         {
-            CambiarPrecio();
+            LlenarPrecio();
             LlenarImporte();
         }
 
         private void ProductoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CambiarPrecio();
+            LlenarPrecio();
             if (CantidadTextBox.Text != "0")
             {
                 LlenarImporte();

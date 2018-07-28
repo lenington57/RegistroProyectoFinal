@@ -88,6 +88,7 @@
             this.buttonImprimir.TabIndex = 42;
             this.buttonImprimir.Text = "Imprimir";
             this.buttonImprimir.UseVisualStyleBackColor = true;
+            this.buttonImprimir.Click += new System.EventHandler(this.buttonImprimir_Click);
             // 
             // EntradasConsultaDataGridView
             // 

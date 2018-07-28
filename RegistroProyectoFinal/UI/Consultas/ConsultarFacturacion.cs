@@ -9,11 +9,14 @@ using System.Windows.Forms;
 using System.Linq.Expressions;
 using RegistroProyectoFinal.BLL;
 using RegistroProyectoFinal.Entidades;
+using RegistroProyectoFinal.UI.Reportes;
 
 namespace RegistroProyectoFinal.UI.Consultas
 {
     public partial class ConsultarFacturacion : Form
     {
+        private List<Factura> facturas = new List<Factura>();
+
         public ConsultarFacturacion()
         {
             InitializeComponent();
@@ -49,7 +52,8 @@ namespace RegistroProyectoFinal.UI.Consultas
                     break;
             }
 
-            FacturaConsultaDataGridView.DataSource = FacturaBLL.GetList(filtro);
+            facturas = FacturaBLL.GetList(filtro);
+            FacturaConsultaDataGridView.DataSource = facturas;
         }
 
         private void FiltroComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -64,6 +68,17 @@ namespace RegistroProyectoFinal.UI.Consultas
                 CriterioTextBox.Visible = true;
                 CriterioLabel.Visible = true;
             }
+        }
+
+        private void buttonImprimir_Click(object sender, EventArgs e)
+        {
+            if (facturas.Count == 0)
+            {
+                MessageBox.Show("No hay datos pra mostrar en el Reporte");
+                return;
+            }
+            FacturasReviewer facturasReviewer = new FacturasReviewer(facturas);
+            facturasReviewer.ShowDialog();
         }
     }
 }

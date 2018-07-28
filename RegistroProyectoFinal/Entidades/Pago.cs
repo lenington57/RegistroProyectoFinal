@@ -12,8 +12,6 @@ namespace RegistroProyectoFinal.Entidades
 
         public int PagoId { get; set; }
 
-        //public int FacturaId { get; set; }
-
         public DateTime Fecha { get; set; }
 
         public int ClienteId { get; set; }       

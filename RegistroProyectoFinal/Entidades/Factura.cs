@@ -32,9 +32,9 @@ namespace RegistroProyectoFinal.Entidades
             this.Detalle = new List<FacturaDetalle>();
         }
 
-        public void AgregarDetalle(int Id, int FacturaId, int ClienteId, int ProductoId, double Cantidad, double Precio, double Importe)
+        public void AgregarDetalle(int Id, int FacturaId, int ProductoId, double Cantidad, double Precio, double Importe)
         {
-            this.Detalle.Add(new FacturaDetalle(Id, FacturaId, ClienteId, ProductoId, Cantidad, Precio, Importe));
+            this.Detalle.Add(new FacturaDetalle(Id, FacturaId, ProductoId, Cantidad, Precio, Importe));
         }
 
         public override string ToString()

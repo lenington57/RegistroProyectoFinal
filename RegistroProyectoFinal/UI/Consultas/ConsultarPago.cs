@@ -9,11 +9,14 @@ using System.Windows.Forms;
 using System.Linq.Expressions;
 using RegistroProyectoFinal.BLL;
 using RegistroProyectoFinal.Entidades;
+using RegistroProyectoFinal.UI.Reportes;
 
 namespace RegistroProyectoFinal.UI.Consultas
 {
     public partial class ConsultarPago : Form
     {
+        private List<Pago> pagos = new List<Pago>();
+
         public ConsultarPago()
         {
             InitializeComponent();
@@ -40,7 +43,8 @@ namespace RegistroProyectoFinal.UI.Consultas
                     break;
             }
 
-            PagoConsultaDataGridView.DataSource = PagoBLL.GetList(filtro);
+            pagos = PagoBLL.GetList(filtro);
+            PagoConsultaDataGridView.DataSource = pagos;
         }
 
         private void FiltroComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -55,6 +59,17 @@ namespace RegistroProyectoFinal.UI.Consultas
                 CriterioTextBox.Visible = true;
                 CriterioLabel.Visible = true;
             }
+        }
+
+        private void buttonImprimir_Click(object sender, EventArgs e)
+        {
+            if (pagos.Count == 0)
+            {
+                MessageBox.Show("No hay datos pra mostrar en el Reporte");
+                return;
+            }
+            PagosReviewer pagosReviewer = new PagosReviewer(pagos);
+            pagosReviewer.ShowDialog();
         }
     }
 }

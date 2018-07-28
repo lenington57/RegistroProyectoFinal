@@ -15,8 +15,6 @@ namespace RegistroProyectoFinal.Entidades
 
         public int FacturaId { get; set; }
 
-        public int ClienteId { get; set; }
-
         public int ProductoId { get; set; }
 
         public double Cantidad { get; set; }
@@ -28,9 +26,6 @@ namespace RegistroProyectoFinal.Entidades
         [ForeignKey("FacturaId")]
         public virtual Factura Factura { get; set; }
 
-        [ForeignKey("ClienteId")]
-        public virtual Cliente Cliente { get; set; }
-
         [ForeignKey("ProductoId")]
         public virtual Producto Producto { get; set; }
 
@@ -39,18 +34,16 @@ namespace RegistroProyectoFinal.Entidades
         {
             Id = 0;
             FacturaId = 0;
-            ClienteId = 0;
             ProductoId = 0;
             Cantidad = 0;
             Precio = 0;
             Importe = 0;
         }
 
-        public FacturaDetalle(int id, int facturaId, int clienteId, int productoId, double cantidad, double precio, double importe)
+        public FacturaDetalle(int id, int facturaId, int productoId, double cantidad, double precio, double importe)
         {
             Id = id;
             FacturaId = facturaId;
-            ClienteId = clienteId;
             ProductoId = productoId;
             Cantidad = cantidad;
             Precio = precio;

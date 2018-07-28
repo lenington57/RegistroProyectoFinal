@@ -14,22 +14,21 @@ namespace RegistroProyectoFinal.BLL
         public static bool Guardar(Factura factura)
         {
             bool paso = false;
-
             Contexto contexto = new Contexto();
             try
             {
                 if (contexto.Factura.Add(factura) != null)
-                {
+
                     foreach (var item in factura.Detalle)
                     {
                         contexto.Producto.Find(item.ProductoId).CantidadIventario -= item.Cantidad;
                     }
 
-                    contexto.Cliente.Find(factura.ClienteId).Deuda += factura.Total;
+                contexto.Cliente.Find(factura.ClienteId).Deuda += factura.Total;
 
-                    contexto.SaveChanges();
-                    paso = true;
-                }
+                contexto.SaveChanges();
+                paso = true;
+
                 contexto.Dispose();
             }
             catch (Exception)
@@ -39,14 +38,41 @@ namespace RegistroProyectoFinal.BLL
             return paso;
         }
 
-
         public static bool Modificar(Factura factura)
         {
             bool paso = false;
-
             Contexto contexto = new Contexto();
             try
             {
+                var FactAnt = FacturaBLL.Buscar(factura.FacturaId);
+
+                ModificarBien(factura, FactAnt);
+
+                //foreach (var item in FactAnt.Detalle)
+                //{
+                //    contexto.Producto.Find(item.ProductoId).CantidadIventario += item.Cantidad;
+
+                //    if (!factura.Detalle.ToList().Exists(v => v.Id == item.Id))
+                //    {
+                //        item.Producto = null;
+                //        contexto.Entry(item).State = EntityState.Deleted;
+                //    }
+                //}
+
+                //foreach (var item in factura.Detalle)
+                //{
+                //    contexto.Producto.Find(item.ProductoId).CantidadIventario -= item.Cantidad;
+                //    var estado = item.Id > 0 ? EntityState.Modified : EntityState.Added;
+                //    contexto.Entry(item).State = estado;
+                //}
+
+                Factura FactAnterior = FacturaBLL.Buscar(factura.FacturaId);
+                double modificado = factura.Total - FactAnterior.Total;
+
+                var Cliente = contexto.Cliente.Find(factura.FacturaId);
+                Cliente.Deuda += modificado;
+                ClienteBLL.Modificar(Cliente);
+
                 contexto.Entry(factura).State = EntityState.Modified;
                 if (contexto.SaveChanges() > 0)
                 {
@@ -65,7 +91,6 @@ namespace RegistroProyectoFinal.BLL
         public static bool Eliminar(int id)
         {
             bool paso = false;
-
             Contexto contexto = new Contexto();
             try
             {
@@ -73,8 +98,10 @@ namespace RegistroProyectoFinal.BLL
 
                 foreach (var item in factura.Detalle)
                 {
-                    contexto.Producto.Find(item.ProductoId).CantidadIventario += item.Cantidad;
+                    var EliminInventario = contexto.Producto.Find(item.ProductoId);
+                    EliminInventario.CantidadIventario += item.Cantidad;
                 }
+
                 contexto.Cliente.Find(factura.ClienteId).Deuda -= factura.Total;
 
                 contexto.Factura.Remove(factura);
@@ -109,7 +136,7 @@ namespace RegistroProyectoFinal.BLL
                     {
 
                         string s = item.Producto.Descripcion;
-                        string ss = item.Cliente.Nombres;
+                        string ss = item.Factura.FacturaId.ToString();
                     }
                 }
                 contexto.Dispose();
@@ -126,7 +153,6 @@ namespace RegistroProyectoFinal.BLL
         {
             List<Factura> facturas = new List<Factura>();
             Contexto contexto = new Contexto();
-
             try
             {
                 facturas = contexto.Factura.Where(expression).ToList();
@@ -136,7 +162,6 @@ namespace RegistroProyectoFinal.BLL
             {
                 throw;
             }
-
             return facturas;
         }
 
@@ -147,5 +172,22 @@ namespace RegistroProyectoFinal.BLL
 
             return CalImporte;
         }
+
+        public static void ModificarBien(Factura factura, Factura FacturasAnteriores)
+        {
+            Contexto contexto = new Contexto();
+            var Cliente = contexto.Cliente.Find(factura.ClienteId);
+            var ClientesAnteriores = contexto.Cliente.Find(FacturasAnteriores.ClienteId);
+
+            if (ClientesAnteriores.ClienteId != Cliente.ClienteId)
+            {
+                Cliente.Deuda += factura.Total;
+                ClientesAnteriores.Deuda -= FacturasAnteriores.Total;
+                ClienteBLL.Modificar(Cliente);
+                ClienteBLL.Modificar(ClientesAnteriores);
+            }
+        }
+
     }
 }
+

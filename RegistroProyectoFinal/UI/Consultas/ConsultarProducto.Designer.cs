@@ -66,12 +66,12 @@
             // 
             this.FiltroComboBox.FormattingEnabled = true;
             this.FiltroComboBox.Items.AddRange(new object[] {
-            "Id del Artículo",
-            "Descripcion del Artículo",
-            "Costo del Artículo",
-            "Precio del Artículo",
-            "Porciento de Ganancias del Artículo",
-            "Cantidad en el Inventario del Artículo"});
+            "Id del Producto",
+            "Descripcion del Producto",
+            "Costo del Producto",
+            "Precio del Producto",
+            "Porciento de Ganancias del Producto",
+            "Cantidad en el Inventario del Producto"});
             this.FiltroComboBox.Location = new System.Drawing.Point(62, 17);
             this.FiltroComboBox.Name = "FiltroComboBox";
             this.FiltroComboBox.Size = new System.Drawing.Size(197, 21);
@@ -96,6 +96,7 @@
             this.buttonImprimir.TabIndex = 24;
             this.buttonImprimir.Text = "Imprimir";
             this.buttonImprimir.UseVisualStyleBackColor = true;
+            this.buttonImprimir.Click += new System.EventHandler(this.buttonImprimir_Click);
             // 
             // buttonBuscar
             // 

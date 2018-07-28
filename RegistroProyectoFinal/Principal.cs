@@ -116,5 +116,10 @@ namespace RegistroProyectoFinal
             consultarUsuario.MdiParent = this;
             consultarUsuario.Show();
         }
+
+        private void Principal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
