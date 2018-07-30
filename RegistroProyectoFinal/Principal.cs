@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using RegistroProyectoFinal.UI.Registro;
 using RegistroProyectoFinal.UI.Registros;
 using RegistroProyectoFinal.UI.Consultas;
+using RegistroProyectoFinal.BLL;
 
 namespace RegistroProyectoFinal
 {
@@ -17,6 +18,15 @@ namespace RegistroProyectoFinal
         public Principal()
         {
             InitializeComponent();
+            CargarUsuario();
+        }
+
+        private void CargarUsuario()
+        {
+            UsuarioLabel.DataBindings.Clear();
+            var Usuario = UsuarioBLL.GetList(c => true);
+            Binding doBinding = new Binding("Text", Usuario, "Nombres");
+            UsuarioLabel.DataBindings.Add(doBinding);
         }
 
         private void nuevoProductoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -118,6 +128,16 @@ namespace RegistroProyectoFinal
         }
 
         private void Principal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

@@ -7,12 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using RegistroProyectoFinal.Entidades;
-
 namespace RegistroProyectoFinal.UI.Reportes
 {
     public partial class FacturasReviewer : Form
     {
-        private List<Factura> facturas = null;
+        private List<Factura> facturas = new List<Factura>(); 
 
         public FacturasReviewer(List<Factura> Lista)
         {
@@ -20,7 +19,7 @@ namespace RegistroProyectoFinal.UI.Reportes
             this.facturas = Lista;
         }
 
-        private void FacturasCrystalReportViewer_Load(object sender, EventArgs e)
+        private void crystalReportViewer1_Load(object sender, EventArgs e)
         {
             FacturasCrystalReport facturasCrystalReport = new FacturasCrystalReport();
             facturasCrystalReport.SetDataSource(facturas);

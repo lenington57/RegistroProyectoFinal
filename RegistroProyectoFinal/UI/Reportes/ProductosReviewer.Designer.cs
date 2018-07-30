@@ -1,6 +1,6 @@
 ﻿namespace RegistroProyectoFinal.UI.Reportes
 {
-    partial class ProductoReviewer
+    partial class ProductosReviewer
     {
         /// <summary>
         /// Required designer variable.

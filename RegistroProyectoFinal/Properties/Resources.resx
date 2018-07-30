@@ -121,6 +121,9 @@
   <data name="5a00d2c17275a" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\5a00d2c17275a.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="comprador" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\comprador.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Person_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Person_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -142,9 +145,6 @@
   <data name="Plus Math_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Plus Math_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Search_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Search_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -157,8 +157,11 @@
   <data name="mejores-herramientas-factuacion-electronica-810x607" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mejores-herramientas-factuacion-electronica-810x607.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="comprador" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\comprador.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Search_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Search_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="don-quijote-de-la-mancha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\don-quijote-de-la-mancha.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Print_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Print_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,7 +169,7 @@
   <data name="conf_producto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\conf_producto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="don-quijote-de-la-mancha" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\don-quijote-de-la-mancha.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="5e903e1ef9904ab5a77e9568220263b1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\5e903e1ef9904ab5a77e9568220263b1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

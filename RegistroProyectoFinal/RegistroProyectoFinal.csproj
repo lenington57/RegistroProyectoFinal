@@ -42,6 +42,9 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -233,11 +236,11 @@
     <Compile Include="UI\Reportes\PagosReviewer.Designer.cs">
       <DependentUpon>PagosReviewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Reportes\ProductoReviewer.cs">
+    <Compile Include="UI\Reportes\ProductosReviewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Reportes\ProductoReviewer.Designer.cs">
-      <DependentUpon>ProductoReviewer.cs</DependentUpon>
+    <Compile Include="UI\Reportes\ProductosReviewer.Designer.cs">
+      <DependentUpon>ProductosReviewer.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Reportes\ProductosCrystalReport.cs">
       <AutoGen>True</AutoGen>
@@ -350,8 +353,8 @@
     <EmbeddedResource Include="UI\Reportes\PagosReviewer.resx">
       <DependentUpon>PagosReviewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Reportes\ProductoReviewer.resx">
-      <DependentUpon>ProductoReviewer.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Reportes\ProductosReviewer.resx">
+      <DependentUpon>ProductosReviewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\ProductosCrystalReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -424,6 +427,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DAL\Scripts\Scriptss.sql" />
+    <None Include="Resources\5e903e1ef9904ab5a77e9568220263b1.jpg" />
     <None Include="Resources\don-quijote-de-la-mancha.jpg" />
     <None Include="Resources\Print_16px.png" />
   </ItemGroup>

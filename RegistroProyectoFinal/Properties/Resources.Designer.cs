@@ -83,6 +83,16 @@ namespace RegistroProyectoFinal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _5e903e1ef9904ab5a77e9568220263b1 {
+            get {
+                object obj = ResourceManager.GetObject("5e903e1ef9904ab5a77e9568220263b1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap comprador {
             get {
                 object obj = ResourceManager.GetObject("comprador", resourceCulture);

@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace RegistroProyectoFinal.UI.Reportes
 {
-    public partial class ProductoReviewer : Form
+    public partial class ProductosReviewer : Form
     {
         private List<Producto> productos = null;
 
-        public ProductoReviewer(List<Producto> Lista)
+        public ProductosReviewer(List<Producto> Lista)
         {
             InitializeComponent();
             this.productos = Lista;

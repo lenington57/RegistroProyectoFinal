@@ -12,7 +12,7 @@ namespace RegistroProyectoFinal.UI.Reportes
 {
     public partial class ClientesReviewer : Form
     {
-        private List<Cliente> clientes = null;
+        private List<Cliente> clientes = new List<Cliente>();
 
         public ClientesReviewer(List<Cliente> Lista)
         {

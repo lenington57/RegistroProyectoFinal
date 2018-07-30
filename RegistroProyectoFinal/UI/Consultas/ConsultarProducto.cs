@@ -60,7 +60,7 @@ namespace RegistroProyectoFinal.UI.Consultas
                 MessageBox.Show("No hay datos pra mostrar en el Reporte");
                 return;
             }
-            ProductoReviewer productoReviewer = new ProductoReviewer(productos);
+            ProductosReviewer productoReviewer = new ProductosReviewer(productos);
             productoReviewer.ShowDialog();
         }
     }

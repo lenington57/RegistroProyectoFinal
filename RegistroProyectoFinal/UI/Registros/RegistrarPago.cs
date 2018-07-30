@@ -77,6 +77,8 @@ namespace RegistroProyectoFinal.UI.Registros
                 ClienteComboBox.SelectedValue = pago.ClienteId;
                 MontoTextBox.Text = pago.MontoPago.ToString();
             }
+            else
+                MessageBox.Show("No existe!!", "Falló", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void NuevoButton_Click(object sender, EventArgs e)
