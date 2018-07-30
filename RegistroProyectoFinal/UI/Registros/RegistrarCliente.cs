@@ -109,7 +109,11 @@ namespace RegistroProyectoFinal.UI.Registros
             cliente = LlenaClase();
 
             if (ClienteIdNumericUpDown.Value == 0)
+            {
                 paso = ClienteBLL.Guardar(cliente);
+                MessageBox.Show("Guardado!!", "Exito",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             else
             {
                 int id = Convert.ToInt32(ClienteIdNumericUpDown.Value);
@@ -118,6 +122,8 @@ namespace RegistroProyectoFinal.UI.Registros
                 if (cliente != null)
                 {
                     paso = ClienteBLL.Modificar(LlenaClase());
+                    MessageBox.Show("Modificado!!", "Exito",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                     MessageBox.Show("Id no existe", "Falló",
@@ -126,8 +132,6 @@ namespace RegistroProyectoFinal.UI.Registros
 
             if (paso)
             {
-                MessageBox.Show("Guardado!!", "Exito",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarObjetos();
             }
             else

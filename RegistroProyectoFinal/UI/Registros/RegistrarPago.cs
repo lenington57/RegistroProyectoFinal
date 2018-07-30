@@ -40,7 +40,7 @@ namespace RegistroProyectoFinal.UI.Registros
             pago.MontoPago = Convert.ToDouble(MontoTextBox.Text);
 
             return pago;
-        }
+        }        
 
         private void LimpiarObjetos()
         {
@@ -86,47 +86,103 @@ namespace RegistroProyectoFinal.UI.Registros
             LimpiarObjetos();
         }
 
+        public  bool Monto(Pago pago)
+        {
+            Contexto contexto = new Contexto();
+            bool paso = false;
+
+            int MontoActual = Convert.ToInt32(MontoTextBox.Text);
+            int MontoAnterior = Convert.ToInt32(contexto.Cliente.Find(pago.ClienteId).Deuda);
+
+            if (MontoActual > MontoAnterior)
+            {
+                MessageBox.Show($"La deuda del cliente es de {MontoAnterior}");
+                paso = true;
+            }
+            return paso;
+        }
+
+        public bool MontoModifi(Pago pago)
+        {
+            Pago PagoAnt = PagoBLL.Buscar(pago.PagoId);
+            Contexto contexto = new Contexto();
+            bool paso = false;
+
+             if (PagoAnt.ClienteId == pago.ClienteId)
+             {
+                if (pago.MontoPago > PagoAnt.MontoPago)
+                {
+                    MessageBox.Show($"La deuda del cliente es de {PagoAnt.MontoPago}");
+                    MessageBox.Show("Ingrese la cantidad correcta");
+                    paso = true;
+                }
+
+                return paso;
+             }
+
+            int MontoActual = Convert.ToInt32(MontoTextBox.Text);
+            int MontoAnterior = Convert.ToInt32(contexto.Cliente.Find(pago.ClienteId).Deuda);
+
+            if (MontoActual > MontoAnterior)
+            {
+                MessageBox.Show($"La deuda del cliente es de {MontoAnterior}");
+                paso = true;
+            }
+            return paso;
+        }
+
         private void GuardarButton_Click(object sender, EventArgs e)
         {
+            Contexto contexto = new Contexto();
             Pago pago;
             bool paso = false;
 
             if (HayErrores())
                 MessageBox.Show("Debe llenar los campos indicados", "Validación",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
 
             pago = LlenaClase();
 
-            if (PagoIdNumericUpDown.Value == 0)
+            if (Monto(pago))
             {
-                paso = PagoBLL.Guardar(pago);
-                MessageBox.Show("Guardado!!", "Exito",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Cantidad Mayor", "Validación",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-                
-            else
-            {
-                int id = Convert.ToInt32(PagoIdNumericUpDown.Value);
-                pago = PagoBLL.Buscar(id);
-
-                if (pago != null)
+            else {
+                if (PagoIdNumericUpDown.Value == 0)
                 {
-                    paso = PagoBLL.Modificar(LlenaClase());
-                    MessageBox.Show("Modificado", "Exito",
+                    paso = PagoBLL.Guardar(pago);
+                    MessageBox.Show("Guardado!!", "Exito",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else
-                    MessageBox.Show("Id no existe", "Falló",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
-            if (paso)
-            {
-                LimpiarObjetos();
-            }
-            else
-                MessageBox.Show("No se pudo guardar!!", "Falló",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    int id = Convert.ToInt32(PagoIdNumericUpDown.Value);
+                    pago = PagoBLL.Buscar(id);
+
+                    if (pago != null)
+                    {
+                        MontoModifi(pago);
+                        paso = PagoBLL.Modificar(LlenaClase());
+                        MessageBox.Show("Modificado", "Exito",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        MessageBox.Show("Id no existe", "Falló",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                if (paso)
+                {
+                    LimpiarObjetos();
+                }
+                else
+                    MessageBox.Show("No se pudo guardar!!", "Falló",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }    
+            
         }
 
         private void EliminarButton_Click(object sender, EventArgs e)

@@ -133,7 +133,11 @@ namespace RegistroProyectoFinal.UI.Registro
             producto = LlenaClase();
 
             if (ProductoIdNumericUpDown.Value == 0)
+            {
                 paso = ProductoBLL.Guardar(producto);
+                MessageBox.Show("Guardado!!", "Exito",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             else
             {
                 int id = Convert.ToInt32(ProductoIdNumericUpDown.Value);
@@ -142,6 +146,8 @@ namespace RegistroProyectoFinal.UI.Registro
                 if (producto != null)
                 {
                     paso = ProductoBLL.Modificar(LlenaClase());
+                    MessageBox.Show("Modificado!!", "Exito",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                     MessageBox.Show("Id no existe", "Falló",
@@ -150,8 +156,6 @@ namespace RegistroProyectoFinal.UI.Registro
 
             if (paso)
             {
-                MessageBox.Show("Guardado!!", "Exito",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarObjetos();
             }
             else

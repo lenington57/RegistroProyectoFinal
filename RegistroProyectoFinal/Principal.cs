@@ -18,7 +18,7 @@ namespace RegistroProyectoFinal
         public Principal()
         {
             InitializeComponent();
-            CargarUsuario();
+            //CargarUsuario();
         }
 
         private void CargarUsuario()
@@ -140,6 +140,11 @@ namespace RegistroProyectoFinal
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            //AyudaToolStripMenuItem;
         }
     }
 }

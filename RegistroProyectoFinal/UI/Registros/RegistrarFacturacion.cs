@@ -371,8 +371,6 @@ namespace RegistroProyectoFinal.UI.Registro
             if (Paso)
             {
                 NuevoButton.PerformClick();
-                MessageBox.Show("Guardado!!", "Exito",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
                 MessageBox.Show("No se pudo guardar!!", "Fallo",

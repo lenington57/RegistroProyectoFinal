@@ -38,6 +38,19 @@ namespace RegistroProyectoFinal.BLL
             return paso;
         }
 
+        public static void ModificarBien(Factura factura, Factura FacturasAnteriores)
+        {
+            Contexto contexto = new Contexto();
+            var Cliente = contexto.Cliente.Find(factura.ClienteId);
+            var ClientesAnteriores = contexto.Cliente.Find(FacturasAnteriores.ClienteId);
+
+            Cliente.Deuda += factura.Total;
+            ClientesAnteriores.Deuda -= FacturasAnteriores.Total;
+            ClienteBLL.Modificar(Cliente);
+            ClienteBLL.Modificar(ClientesAnteriores);
+
+        }
+
         public static bool Modificar(Factura factura)
         {
             bool paso = false;
@@ -51,20 +64,31 @@ namespace RegistroProyectoFinal.BLL
                     ModificarBien(factura, FactAnt);
                 }
 
-                foreach (var item in factura.Detalle)
+                if (factura != null)
                 {
-                    contexto.Producto.Find(item.ProductoId).CantidadIventario += item.Cantidad;
-                    var estado = item.Id > 0 ? EntityState.Modified : EntityState.Added;
-                    contexto.Entry(item).State = estado;
+                    foreach (var item in FactAnt.Detalle)
+                    {
+                        contexto.Producto.Find(item.ProductoId).CantidadIventario += item.Cantidad;
+
+                        if (!factura.Detalle.ToList().Exists(v => v.Id == item.Id))
+                        {
+                            item.Producto = null;
+                            contexto.Entry(item).State = EntityState.Deleted;
+                        }
+                    }
+
+                    foreach (var item in factura.Detalle)
+                    {
+                        contexto.Producto.Find(item.ProductoId).CantidadIventario -= item.Cantidad;
+                        var estado = item.Id > 0 ? EntityState.Modified : EntityState.Added;
+                        contexto.Entry(item).State = estado;
+                    }
+
+                    contexto.Entry(factura).State = EntityState.Modified;
                 }
-                
-                double modificado = factura.Total - FactAnt.Total;
 
-                var Cliente = contexto.Cliente.Find(factura.FacturaId);
-                Cliente.Deuda += modificado;
-                ClienteBLL.Modificar(Cliente);
+                Modifica(factura, FactAnt, contexto);
 
-                contexto.Entry(factura).State = EntityState.Modified;
                 if (contexto.SaveChanges() > 0)
                 {
                     paso = true;
@@ -78,6 +102,16 @@ namespace RegistroProyectoFinal.BLL
             return paso;
         }
 
+
+
+        public static void Modifica(Factura factura, Factura FactAnt, Contexto contexto)
+        {
+            double modificado = factura.Total - FactAnt.Total;
+
+            var Cliente = contexto.Cliente.Find(factura.FacturaId);
+            Cliente.Deuda += modificado;
+            ClienteBLL.Modificar(Cliente);
+        }
 
         public static bool Eliminar(int id)
         {
@@ -125,7 +159,6 @@ namespace RegistroProyectoFinal.BLL
 
                     foreach (var item in factura.Detalle)
                     {
-
                         string s = item.Producto.Descripcion;
                         string ss = item.Factura.FacturaId.ToString();
                     }
@@ -167,19 +200,6 @@ namespace RegistroProyectoFinal.BLL
             CalImporte = cantidad * precio;
 
             return CalImporte;
-        }
-
-        public static void ModificarBien(Factura factura, Factura FacturasAnteriores)
-        {
-            Contexto contexto = new Contexto();
-            var Cliente = contexto.Cliente.Find(factura.ClienteId);
-            var ClientesAnteriores = contexto.Cliente.Find(FacturasAnteriores.ClienteId);
-            
-            Cliente.Deuda += factura.Total;
-            ClientesAnteriores.Deuda -= FacturasAnteriores.Total;
-            ClienteBLL.Modificar(Cliente);
-            ClienteBLL.Modificar(ClientesAnteriores);
-            
         }
 
     }

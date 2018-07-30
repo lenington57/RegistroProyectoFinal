@@ -200,6 +200,12 @@
     <Compile Include="UI\Reportes\DepartamentosReviewer.Designer.cs">
       <DependentUpon>DepartamentosReviewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Reportes\DetalleCrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DetalleCrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\Reportes\EntradasCrystalReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -331,6 +337,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\DepartamentosReviewer.resx">
       <DependentUpon>DepartamentosReviewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\DetalleCrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DetalleCrystalReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\EntradasCrystalReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

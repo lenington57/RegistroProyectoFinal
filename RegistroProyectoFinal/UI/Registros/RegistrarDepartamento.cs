@@ -79,7 +79,11 @@ namespace RegistroProyectoFinal.UI.Registros
             departamento = LlenaClase();
 
             if (DepartamentoIdNumericUpDown.Value == 0)
+            {
                 paso = DepartamentoBLL.Guardar(departamento);
+                MessageBox.Show("Guardado!!", "Exito",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             else
             {
                 int id = Convert.ToInt32(DepartamentoIdNumericUpDown.Value);
@@ -88,6 +92,8 @@ namespace RegistroProyectoFinal.UI.Registros
                 if (departamento != null)
                 {
                     paso = DepartamentoBLL.Modificar(LlenaClase());
+                    MessageBox.Show("Modificado!!", "Exito",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                     MessageBox.Show("Id no existe", "Falló",
@@ -96,8 +102,6 @@ namespace RegistroProyectoFinal.UI.Registros
 
             if (paso)
             {
-                MessageBox.Show("Guardado!!", "Exito",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarObjetos();
             }
             else

@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
-            this.TextBox = new System.Windows.Forms.TextBox();
+            this.ContraseñaTextBox = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.EntrarButton = new System.Windows.Forms.Button();
             this.SalirButton = new System.Windows.Forms.Button();
@@ -63,12 +63,12 @@
             this.EmailTextBox.Size = new System.Drawing.Size(131, 20);
             this.EmailTextBox.TabIndex = 2;
             // 
-            // TextBox
+            // ContraseñaTextBox
             // 
-            this.TextBox.Location = new System.Drawing.Point(177, 107);
-            this.TextBox.Name = "TextBox";
-            this.TextBox.Size = new System.Drawing.Size(131, 20);
-            this.TextBox.TabIndex = 3;
+            this.ContraseñaTextBox.Location = new System.Drawing.Point(177, 107);
+            this.ContraseñaTextBox.Name = "ContraseñaTextBox";
+            this.ContraseñaTextBox.Size = new System.Drawing.Size(131, 20);
+            this.ContraseñaTextBox.TabIndex = 3;
             // 
             // pictureBox1
             // 
@@ -112,7 +112,7 @@
             this.Controls.Add(this.SalirButton);
             this.Controls.Add(this.EntrarButton);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.TextBox);
+            this.Controls.Add(this.ContraseñaTextBox);
             this.Controls.Add(this.EmailTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -130,7 +130,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox EmailTextBox;
-        private System.Windows.Forms.TextBox TextBox;
+        private System.Windows.Forms.TextBox ContraseñaTextBox;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button EntrarButton;
         private System.Windows.Forms.Button SalirButton;

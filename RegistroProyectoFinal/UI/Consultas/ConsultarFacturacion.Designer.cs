@@ -39,6 +39,7 @@
             this.CriterioLabel = new System.Windows.Forms.Label();
             this.FiltroComboBox = new System.Windows.Forms.ComboBox();
             this.FiltroLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.FacturaConsultaDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,9 +85,9 @@
             this.buttonImprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonImprimir.Location = new System.Drawing.Point(25, 405);
             this.buttonImprimir.Name = "buttonImprimir";
-            this.buttonImprimir.Size = new System.Drawing.Size(87, 23);
+            this.buttonImprimir.Size = new System.Drawing.Size(123, 23);
             this.buttonImprimir.TabIndex = 42;
-            this.buttonImprimir.Text = "Imprimir";
+            this.buttonImprimir.Text = "Imprimir Reporte";
             this.buttonImprimir.UseVisualStyleBackColor = true;
             this.buttonImprimir.Click += new System.EventHandler(this.buttonImprimir_Click);
             // 
@@ -152,11 +153,23 @@
             this.FiltroLabel.TabIndex = 36;
             this.FiltroLabel.Text = "Filtro";
             // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::RegistroProyectoFinal.Properties.Resources.Print_16px;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button1.Location = new System.Drawing.Point(25, 428);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(123, 23);
+            this.button1.TabIndex = 47;
+            this.button1.Text = "Imprimir Recibo";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // ConsultarFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(667, 450);
+            this.ClientSize = new System.Drawing.Size(667, 456);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.HastaDateTimePicker);
             this.Controls.Add(this.DesdeDateTimePicker);
@@ -189,5 +202,6 @@
         private System.Windows.Forms.Label CriterioLabel;
         private System.Windows.Forms.ComboBox FiltroComboBox;
         private System.Windows.Forms.Label FiltroLabel;
+        private System.Windows.Forms.Button button1;
     }
 }

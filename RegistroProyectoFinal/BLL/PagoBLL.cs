@@ -48,7 +48,7 @@ namespace RegistroProyectoFinal.BLL
                 if (PagoAnt.ClienteId != pago.ClienteId)
                 {
                     ModificarBien(pago, PagoAnt);
-                }
+                }               
 
                 double modificado = pago.MontoPago - PagoAnt.MontoPago;
 
@@ -145,6 +145,6 @@ namespace RegistroProyectoFinal.BLL
             ClienteBLL.Modificar(Cliente);
             ClienteBLL.Modificar(ClienteAnterior);
         }
-
+        
     }
 }
